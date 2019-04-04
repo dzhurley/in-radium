@@ -1,0 +1,268 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    perspective: 100vh;
+    background-color: #777169;
+    font-family: Monaco;
+}
+
+.skytree {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    background-image: url(https://fortismereartdepartment.weebly.com/uploads/3/7/9/8/3798713/trees.jpg);
+    background-size: cover;
+    height: 80vh;
+    width: 80vh;
+    border-radius: 50%;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.skytree b {
+    width: 100%;
+    height: 1vh;
+    background-color: black;
+    display: block;
+}
+
+.skytree b:nth-child(1) { position: absolute; top: 50%; left: 50%; transform: translate(-50%, 20vh); }
+
+.skytree b:nth-child(2) { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -20vh); }
+
+.skytree b:nth-child(3) { position: absolute; top: 50%; left: 50%; transform: translate(-20vh, 50%) rotate(90deg); }
+
+.skytree b:nth-child(4) { position: absolute; top: 50%; left: 50%; transform: translate(-60vh, 50%) rotate(90deg); }
+
+.arms {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(0deg);
+    transform-style: preserve-3d;
+    transform-origin: 50% 50% 100vh;
+    height: 100vh;
+    width: 100vw;
+    animation: 20s ease-in-out infinite alternate spin;
+}
+
+.left, .middle, .right {
+    background-color: #E0DEDE;
+    border: 1px solid black;
+}
+
+.left {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-200%, -50%, 100vh) rotateY(90deg);
+    height: 40vh;
+    width: 70vh;
+    border-radius: 50% / 30%;
+}
+
+.left:after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+}
+
+.left:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.left b {
+    position: absolute;
+    top: 50%;
+    transform: translate(-100%, -50%);
+    width: 15%;
+    height: 70%;
+    border: 15px solid black;
+    border-radius: 10px;
+}
+
+.left b:before, .left b:after {
+    content: '';
+    height: 50%;
+    width: 15px;
+    background-color: black;
+    position: absolute;
+    transform-origin: 50% 100%;
+}
+
+.left b:before { transform: translate(-10px) scale(1.2) rotate(45deg); }
+
+.left b:after  { transform: translate(-10px) scale(1.2) rotate(135deg); }
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) rotateY(0deg);
+    height: 90vh;
+    width: 90vh;
+    border-radius: 50%;
+}
+
+.middle:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 60vh;
+    height: 60vh;
+    background-color: black;
+}
+
+.middle .handles, .middle .inner-circle, .middle .mirror { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+.middle .handles {
+    background-color: red;
+    width: 50vh;
+    height: 50vh;
+}
+
+.middle .inner-circle {
+    background-color: darkgray;
+    width: 75vh;
+    height: 75vh;
+    border-radius: 50%;
+}
+
+.middle .inner-circle:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 50vh;
+    height: 50vh;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.middle .mirror {
+    background-color: hotpink;
+    width: 30vh;
+    height: 30vh;
+    box-shadow: none;
+}
+
+.middle .mirror:before, .middle .mirror:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: black;
+}
+
+.middle .mirror:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.middle .mirror b {
+    width: 10vh;
+    height: 35vh;
+    border-top: 5vh solid darkgray;
+    border-bottom: 5vh solid darkgray;
+}
+
+.middle .mirror b:nth-child(1) { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); }
+
+.middle .mirror b:nth-child(2) { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg); }
+
+.right {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(100%, -50%, 100vh) rotateY(-90deg);
+    height: 50vh;
+    width: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10%;
+    padding: 12vh;
+}
+
+.right b {
+    background-color: black;
+    transform: scale(.7);
+    outline: 1px solid #E0DEDE;
+    width: 7.69%;
+    height: 7.69%;
+}
+
+.mask {
+    padding: 1rem;
+}
+
+.mask input:checked:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-image:
+    repeating-linear-gradient(
+    45deg,
+    transparent 5px,
+    hsla(197, 100%, 95%, 0) 5px,
+    hsla(197, 100%, 95%, 0) 100px,
+    hsla(197, 100%, 95%, 0) 120px,
+    hsla(197, 100%, 95%, 0.7) 120px,
+    hsla(197, 100%, 95%, 0.7) 150px
+    ),
+    repeating-linear-gradient(
+    135deg,
+    hsla(197, 100%, 95%, 0) 5px,
+    hsla(197, 100%, 95%, 0) 100px,
+    hsla(197, 100%, 95%, 0) 120px,
+    hsla(197, 100%, 95%, 0.7) 120px,
+    hsla(197, 100%, 95%, 0.7) 150px
+    );
+} 
+
+@keyframes spin {
+    0%   { transform: translate(-50%, -50%) rotateY(0deg); }
+    5%   { transform: translate(-50%, -50%) rotateY(-40deg); }
+    10%  { transform: translate(-50%, -50%) rotateY(-30deg); }
+    15%  { transform: translate(-50%, -50%) rotateY(-35deg); }
+    20%  { transform: translate(-50%, -50%) rotateY(-75deg); }
+    25%  { transform: translate(-50%, -50%) rotateY(-80deg); }
+    30%  { transform: translate(-50%, -50%) rotateY(-90deg); }
+    35%  { transform: translate(-50%, -50%) rotateY(-100deg); }
+    40%  { transform: translate(-50%, -50%) rotateY(-75deg); }
+    45%  { transform: translate(-50%, -50%) rotateY(-60deg); }
+    50%  { transform: translate(-50%, -50%) rotateY(-20deg); }
+    55%  { transform: translate(-50%, -50%) rotateY(-30deg); }
+    60%  { transform: translate(-50%, -50%) rotateY(0deg); }
+    65%  { transform: translate(-50%, -50%) rotateY(-5deg); }
+    70%  { transform: translate(-50%, -50%) rotateY(50deg); }
+    75%  { transform: translate(-50%, -50%) rotateY(40deg); }
+    80%  { transform: translate(-50%, -50%) rotateY(90deg); }
+    85%  { transform: translate(-50%, -50%) rotateY(100deg); }
+    90%  { transform: translate(-50%, -50%) rotateY(30deg); }
+    95%  { transform: translate(-50%, -50%) rotateY(20deg); }
+    100% { transform: translate(-50%, -50%) rotateY(0deg); }
+}
